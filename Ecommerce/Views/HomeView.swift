@@ -32,16 +32,32 @@ struct HomeView: View {
                     .offset(CGSize(width: 10, height: -10))
                 }
             }
-            .padding(.trailing)
+            .padding(.trailing, 35)
         }
     }
     
     var body: some View {
-        VStack {
-            NavigationBarView
-            Image("banner")
-                .bannerImageStyle()
-            Spacer()
+        NavigationStack {
+            VStack {
+                NavigationBarView
+                Image("banner")
+                    .bannerImageStyle()
+                HStack {
+                    Text("Featured")
+                        .font(.system(size: 15, weight: .semibold))
+                        .padding(.leading, 30)
+                    Spacer()
+                    NavigationLink {
+                        ProductGridView()
+                    } label: {
+                        Text("View All")
+                            .font(.system(size: 15, weight: .bold))
+                            .padding(.trailing, 30)
+                    }
+                }
+                .padding(.top)
+                Spacer()
+            }
         }
     }
 }
