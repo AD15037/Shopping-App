@@ -28,7 +28,6 @@ struct HomeView: View {
                         Text("1")
                             .font(.system(size: 14))
                             .foregroundStyle(.white)
-                        
                     }
                     .offset(CGSize(width: 10, height: -10))
                 }
@@ -40,6 +39,8 @@ struct HomeView: View {
     var body: some View {
         VStack {
             NavigationBarView
+            Image("banner")
+                .bannerImageStyle()
             Spacer()
         }
     }
