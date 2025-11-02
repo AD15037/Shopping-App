@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     
+    @State var viewModel = HomeViewModel()
+    
     fileprivate var NavigationBarView: some View {
         HStack {
             Spacer()
@@ -56,42 +58,11 @@ struct HomeView: View {
                     }
                 }
                 .padding(.top)
-                ScrollView(.horizontal) {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Image("backpack")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 150, height: 150)
-                            .clipShape(UnevenRoundedRectangle(cornerRadii: .init(topLeading: 8, bottomLeading: 0, bottomTrailing: 0, topTrailing: 8)))
-                            .clipped()
-                        Group {
-                            Text("Title")
-                                .font(.system(size: 15, weight: .semibold))
-                            Text("$12.00")
-                                .font(.system(size: 15))
-                            HStack {
-                                Image(systemName: "star.fill")
-                                    .font(.system(size: 14))
-                                    .foregroundStyle(.yellow)
-                                Text("4.6")
-                                    .font(.system(size: 14))
-                            }
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.featuredProducts) { product in
+                            ProductRow(product: product)
                         }
-                        .padding(.horizontal, 5)
-                        Spacer()
-                    }
-                    .frame(width: 150, height: 270)
-                    .overlay(alignment: .topTrailing, content: {
-                        Button(action: {
-                            
-                        }, label: {
-                            Image(systemName: "heart")
-                        })
-                        .padding(8)
-                    })
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color(uiColor: UIColor.lightGray).opacity(0.4), lineWidth: 1)
                     }
                 }
                 .padding(.leading, 26)
