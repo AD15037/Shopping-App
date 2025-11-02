@@ -18,6 +18,7 @@
 		8E5F23A52EB21EEC0012E318 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5F23A42EB21EEC0012E318 /* HomeViewModel.swift */; };
 		8E931DFD2EB1129900A94C87 /* ProductGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E931DFC2EB1129900A94C87 /* ProductGridView.swift */; };
 		8EE5BA602EB77A7800569C51 /* ProductRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5BA5F2EB77A7800569C51 /* ProductRow.swift */; };
+		8EE5BA622EB77D1D00569C51 /* ProductFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE5BA612EB77D1D00569C51 /* ProductFilter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		8E5F23A42EB21EEC0012E318 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8E931DFC2EB1129900A94C87 /* ProductGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridView.swift; sourceTree = "<group>"; };
 		8EE5BA5F2EB77A7800569C51 /* ProductRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRow.swift; sourceTree = "<group>"; };
+		8EE5BA612EB77D1D00569C51 /* ProductFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFilter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				20EEEAE62BF78814004F9A5C /* Product.swift */,
+				8EE5BA612EB77D1D00569C51 /* ProductFilter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20EEEAE72BF78814004F9A5C /* Product.swift in Sources */,
+				8EE5BA622EB77D1D00569C51 /* ProductFilter.swift in Sources */,
 				8E04F5E62EB0EF2B0014EB2F /* HomeView.swift in Sources */,
 				8E5F23A52EB21EEC0012E318 /* HomeViewModel.swift in Sources */,
 				20EEEAE52BF787A1004F9A5C /* ProductsClient.swift in Sources */,
