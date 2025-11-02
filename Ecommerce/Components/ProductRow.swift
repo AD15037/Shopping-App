@@ -33,7 +33,7 @@ struct ProductRow: View {
                         .font(.system(size: 14))
                 }
             }
-            .padding(.horizontal, 5)
+            .padding(.horizontal)
             Spacer()
         }
         .frame(width: 150, height: 270)
@@ -43,7 +43,7 @@ struct ProductRow: View {
             }, label: {
                 Image(systemName: "heart")
             })
-            .padding(8)
+            .padding()
         })
         .overlay {
             RoundedRectangle(cornerRadius: 8)

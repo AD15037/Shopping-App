@@ -34,61 +34,63 @@ struct HomeView: View {
                     .offset(CGSize(width: 10, height: -10))
                 }
             }
-            .padding(.trailing, 35)
+            .padding(.trailing)
         }
     }
     
     var body: some View {
         NavigationStack {
-            VStack {
-                NavigationBarView
-                Image("banner")
-                    .bannerImageStyle()
-                HStack {
-                    Text("Featured")
-                        .font(.system(size: 15, weight: .semibold))
-                        .padding(.leading, 35)
-                    Spacer()
-                    NavigationLink {
-                        ProductGridView()
-                    } label: {
-                        Text("View All")
-                            .font(.system(size: 15, weight: .bold))
-                            .padding(.trailing, 35)
-                    }
-                }
-                .padding(.top)
-                ScrollView(.horizontal, showsIndicators: false) {
+            ScrollView {
+                VStack {
+                    NavigationBarView
+                    Image("banner")
+                        .bannerImageStyle()
                     HStack {
-                        ForEach(viewModel.fetchProducts(filter: .isFeatured)) { product in
-                            ProductRow(product: product)
+                        Text("Featured")
+                            .font(.system(size: 15, weight: .semibold))
+                            .padding(.leading)
+                        Spacer()
+                        NavigationLink {
+                            ProductGridView()
+                        } label: {
+                            Text("View All")
+                                .font(.system(size: 15, weight: .bold))
+                                .padding(.trailing)
                         }
                     }
-                }
-                .padding(.leading, 26)
-                HStack {
-                    Text("Highly Rated")
-                        .font(.system(size: 15, weight: .semibold))
-                        .padding(.leading, 35)
-                    Spacer()
-                    NavigationLink {
-                        ProductGridView()
-                    } label: {
-                        Text("View All")
-                            .font(.system(size: 15, weight: .bold))
-                            .padding(.trailing, 35)
-                    }
-                }
-                .padding(.top)
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(viewModel.fetchProducts(filter: .highlyRated)) { product in
-                            ProductRow(product: product)
+                    .padding(.top)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.fetchProducts(filter: .isFeatured)) { product in
+                                ProductRow(product: product)
+                            }
                         }
                     }
+                    .padding(.leading)
+                    HStack {
+                        Text("Highly Rated")
+                            .font(.system(size: 15, weight: .semibold))
+                            .padding(.leading)
+                        Spacer()
+                        NavigationLink {
+                            ProductGridView()
+                        } label: {
+                            Text("View All")
+                                .font(.system(size: 15, weight: .bold))
+                                .padding(.trailing)
+                        }
+                    }
+                    .padding(.top)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(viewModel.fetchProducts(filter: .highlyRated)) { product in
+                                ProductRow(product: product)
+                            }
+                        }
+                    }
+                    .padding(.leading)
+                    Spacer()
                 }
-                .padding(.leading, 26)
-                Spacer()
             }
         }
     }
