@@ -51,7 +51,7 @@ struct HomeView: View {
                             .padding(.leading)
                         Spacer()
                         NavigationLink {
-                            ProductGridView()
+                            ProductGridView(filter: .isFeatured)
                         } label: {
                             Text("View All")
                                 .font(.system(size: 15, weight: .bold))
@@ -73,7 +73,7 @@ struct HomeView: View {
                             .padding(.leading)
                         Spacer()
                         NavigationLink {
-                            ProductGridView()
+                            ProductGridView(filter: .highlyRated)
                         } label: {
                             Text("View All")
                                 .font(.system(size: 15, weight: .bold))
@@ -100,7 +100,7 @@ struct HomeView: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.showAllProducts) {
-                ProductGridView()
+                ProductGridView(filter: .all)
             }
         }
     }
