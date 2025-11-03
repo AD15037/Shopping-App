@@ -66,7 +66,7 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .padding(.leading)
+                    .padding(.leading, 5)
                     HStack {
                         Text("Highly Rated")
                             .font(.system(size: 15, weight: .semibold))
@@ -88,9 +88,19 @@ struct HomeView: View {
                             }
                         }
                     }
-                    .padding(.leading)
+                    .padding(.leading, 5)
+                    Button {
+                        viewModel.showAllProducts = true
+                    } label: {
+                        Text("See Full Catalog")
+                    }
+                    .buttonStyle(PrimaryButtonStyle())
+                    .padding(.horizontal)
                     Spacer()
                 }
+            }
+            .navigationDestination(isPresented: $viewModel.showAllProducts) {
+                ProductGridView()
             }
         }
     }

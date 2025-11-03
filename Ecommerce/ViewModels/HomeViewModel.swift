@@ -11,6 +11,8 @@ import SwiftUI
 @Observable
 class HomeViewModel {
     
+    var showAllProducts = false
+    
     func fetchProducts(filter: ProductFilter) -> [Product] {
         switch filter {
         case .all:
