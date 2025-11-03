@@ -15,14 +15,9 @@ struct ProductGridView: View {
         self.viewModel = ProductGridViewModel(filter: filter)
     }
     
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
+        VStack {
+            TwoColumnGrid {
                 ForEach(viewModel.products) { product in
                     ProductRow(product: product)
                 }
