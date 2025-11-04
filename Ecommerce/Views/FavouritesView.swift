@@ -8,8 +8,37 @@
 import SwiftUI
 
 struct FavouritesView: View {
+    
+    @State var viewModel = FavouritesViewModel()
+    
+    fileprivate func FavouriteProductRow(product: Product) -> some View {
+        HStack {
+            Image(product.image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 70, height: 70)
+            VStack(alignment: .leading) {
+                Text(product.title)
+                    .font(.system(size: 15, weight: .semibold))
+                    .padding(.bottom, 1)
+                Text(product.description)
+                    .lineLimit(2)
+                    .font(.system(size: 15))
+            }
+            Button {
+                
+            } label: {
+                Image(systemName: "heart.fill")
+            }
+        }
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List(viewModel.products) { product in
+                FavouriteProductRow(product: product)
+            }
+        }
     }
 }
 
