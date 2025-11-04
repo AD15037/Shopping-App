@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductRow: View {
     
+    @Environment(FavouritesManager.self) var favouritesManager: FavouritesManager
     let product: Product
     
     var body: some View {
@@ -45,11 +46,15 @@ struct ProductRow: View {
             .frame(width: 150, height: 270)
             .overlay(alignment: .topTrailing, content: {
                 Button(action: {
-                    
+                    if favouritesManager.products.contains(product) {
+                        favouritesManager.products.removeAll(where: { $0.id == product.id })
+                    } else {
+                        favouritesManager.products.append(product)
+                    }
                 }, label: {
-                    Image(systemName: "heart")
+                    Image(systemName: favouritesManager.products.contains(product) ? "heart.fill" : "heart")
                 })
-                .padding()
+                .padding(8)
             })
             .overlay {
                 RoundedRectangle(cornerRadius: 8)
@@ -62,5 +67,6 @@ struct ProductRow: View {
 #Preview {
     NavigationStack {
         ProductRow(product: ProductsClient.fetchProducts()[0])
+            .environment(FavouritesManager())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavouritesView: View {
     
-    @State var viewModel = FavouritesViewModel()
+    @Environment(FavouritesManager.self) var favouritesManager: FavouritesManager
     
     fileprivate func FavouriteProductRow(product: Product) -> some View {
         HStack {
@@ -26,7 +26,7 @@ struct FavouritesView: View {
                     .font(.system(size: 15))
             }
             Button {
-                
+                favouritesManager.products.removeAll(where: { $0.id == product.id })
             } label: {
                 Image(systemName: "heart.fill")
             }
@@ -35,8 +35,13 @@ struct FavouritesView: View {
     
     var body: some View {
         VStack {
-            List(viewModel.products) { product in
+            List(favouritesManager.products) { product in
                 FavouriteProductRow(product: product)
+            }
+        }
+        .overlay {
+            if favouritesManager.products.count == 0 {
+                Text("Nothing to see here")
             }
         }
     }
@@ -44,4 +49,5 @@ struct FavouritesView: View {
 
 #Preview {
     FavouritesView()
+        .environment(FavouritesManager())
 }

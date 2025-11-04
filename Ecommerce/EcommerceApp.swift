@@ -7,6 +7,9 @@ import SwiftUI
 
 @main
 struct EcommerceApp: App {
+    
+    @State var favouritesManager = FavouritesManager()
+    
     var body: some Scene {
         WindowGroup {
             TabView {
@@ -26,6 +29,7 @@ struct EcommerceApp: App {
                         Text("Favourites")
                     }
             }
+            .environment(favouritesManager)
             .preferredColorScheme(.light)
         }
     }
