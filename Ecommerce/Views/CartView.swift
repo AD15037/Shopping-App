@@ -22,9 +22,9 @@ struct CartView: View {
                 Text(productInCart.product.displayPrice)
                     .font(.system(size: 15))
                 Stepper("Quantity \(productInCart.quantity)") {
-                    
+                    cartManager.addToCart(product: productInCart.product)
                 } onDecrement: {
-                    
+                    cartManager.removeFromCart(product: productInCart.product)
                 }
             }
         }

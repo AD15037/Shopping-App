@@ -29,6 +29,7 @@ struct ProductDetailView: View {
                         .padding(.bottom, 15)
                     Button {
                         cartManager.addToCart(product: product)
+                        cartManager.addToCartAlert = true
                     } label: {
                         Text("Add to Cart")
                     }
