@@ -15,11 +15,7 @@ class CartManager {
     var addToCartAlert = false
     
     var displayTotalCartQuantity: Int {
-        var totalQuantity = 0
-        for productInCart in productsInCart {
-            totalQuantity += productInCart.quantity
-        }
-        return totalQuantity
+        productsInCart.reduce(0) { $0 + $1.quantity }
     }
     
     func addToCart(product: Product) {
