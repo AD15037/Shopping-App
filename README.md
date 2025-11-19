@@ -1,0 +1,1 @@
+A Shopping App where users can explore different kind of products and can see highly rated products. Users can add them to favourites. Products are added in cart with the realtime update in Amount as they add or remove products.
